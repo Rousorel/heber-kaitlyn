@@ -1,0 +1,418 @@
+/* ============================================
+   Responsive Fixes & Additional Mobile Optimizations
+   Complementary stylesheet for enhanced responsiveness
+   ============================================ */
+
+/* ============================================
+   Mobile Optimizations - Extra Small Devices
+   ============================================ */
+
+@media (max-width: 576px) {
+  /* Countdown adjustments for very small screens */
+  #countdown {
+    gap: 0.5rem !important;
+    padding: 0.75rem !important;
+  }
+  
+  .count-box {
+    width: 78px;
+    height: 68px;
+    border-radius: 10px;
+  }
+  
+  .count-box .number {
+    font-size: 2rem;
+    margin-bottom: 2px;
+  }
+  
+  .count-box .count-label {
+    font-size: 0.6rem;
+  }
+  
+  /* Typography adjustments */
+  .contador-subtitle {
+    font-size: 1.3rem;
+    line-height: 1.4;
+  }
+  
+  /* Date display */
+  .date-day {
+    font-size: 5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .date-side {
+    min-width: 70px;
+  }
+  
+  .date-label {
+    font-size: 1rem;
+  }
+  
+  /* Itinerary section */
+  .itinerario-inline {
+    margin-top: 2rem;
+    padding-top: 2rem;
+  }
+  
+  .timeline-event {
+    gap: 0.75rem;
+  }
+  
+  .rings img,
+  .cheers img {
+    width: 70px !important;
+    height: 70px !important;
+  }
+  
+  .timeline-text h5 {
+    font-size: 1.1rem;
+  }
+  
+  .timeline-text p {
+    font-size: 0.85rem;
+  }
+  
+  /* Hero section */
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  .hero p {
+    font-size: 1.5rem;
+  }
+  
+  /* Section padding */
+  section {
+    padding: 1.5rem 1rem;
+  }
+}
+
+/* ============================================
+   Tablet Optimizations
+   ============================================ */
+
+@media (min-width: 640px) and (max-width: 899px) {
+  /* Form improvements */
+  .codigo-form {
+    flex-direction: row;
+  }
+  
+  .codigo-form input[type="text"] {
+    width: auto;
+    min-width: 300px;
+  }
+  
+  .codigo-form button {
+    width: auto;
+  }
+  
+  /* Photo gallery */
+  .historia-fotos {
+    padding: 2rem 1.5rem;
+  }
+  
+  .card-stack {
+    width: 320px;
+    height: 420px;
+  }
+}
+
+/* ============================================
+   Medium Screens - Enhanced Countdown
+   ============================================ */
+
+@media (max-width: 768px) {
+  #countdown {
+    gap: 0.75rem !important;
+  }
+  
+  .count-box {
+    width: 100px;
+    height: 80px;
+  }
+  
+  .count-box .number {
+    font-size: 2.4rem;
+    margin-bottom: 3px;
+  }
+  
+  .count-box .count-label {
+    font-size: 0.65rem;
+  }
+}
+
+/* ============================================
+   Form Responsive Behavior
+   ============================================ */
+
+.codigo-form {
+  flex-direction: column;
+  width: 100%;
+}
+
+.codigo-form input[type="text"],
+.codigo-form button {
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .codigo-form {
+    flex-direction: row;
+  }
+  
+  .codigo-form input[type="text"] {
+    width: auto;
+    min-width: 300px;
+  }
+  
+  .codigo-form button {
+    width: auto;
+  }
+}
+
+/* ============================================
+   Text & Content Readability
+   ============================================ */
+
+section {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+p {
+  max-width: 65ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ============================================
+   Enhanced Accessibility
+   ============================================ */
+
+/* Better focus states */
+*:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Touch targets - Minimum 44x44px for mobile */
+@media (max-width: 768px) {
+  button,
+  input[type="submit"],
+  input[type="button"],
+  a.btn {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* ============================================
+   Performance & Animation Optimizations
+   ============================================ */
+
+/* Smooth transitions for interactive elements */
+button,
+input,
+select,
+textarea,
+.card,
+.count-box,
+.photo-card {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================
+   Print Styles
+   ============================================ */
+
+@media print {
+  .hero,
+  #contador,
+  footer,
+  button {
+    display: none;
+  }
+  
+  section {
+    page-break-inside: avoid;
+  }
+  
+  body {
+    background: white;
+    color: black;
+  }
+}
+
+/* ============================================
+   Loading States & Skeleton Screens
+   ============================================ */
+
+.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--bg-alt) 25%,
+    var(--bg-accent) 50%,
+    var(--bg-alt) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: var(--radius);
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* ============================================
+   Error & Success States
+   ============================================ */
+
+.error-message {
+  color: #d32f2f;
+  background-color: rgba(211, 47, 47, 0.1);
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius);
+  border-left: 4px solid #d32f2f;
+  margin: 1rem 0;
+}
+
+.success-message {
+  color: var(--success);
+  background-color: rgba(115, 158, 130, 0.1);
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius);
+  border-left: 4px solid var(--success);
+  margin: 1rem 0;
+}
+
+/* ============================================
+   Card & Container Improvements
+   ============================================ */
+
+.card-body {
+  padding: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .card-body {
+    padding: 2rem;
+  }
+}
+
+/* ============================================
+   Modal & Overlay Improvements
+   ============================================ */
+
+.modal-content {
+  border-radius: var(--radius-lg) !important;
+  border: none !important;
+}
+
+.modal-header {
+  border-bottom: 2px solid var(--border-light);
+  padding: 1.5rem;
+}
+
+.modal-body {
+  padding: 1.5rem;
+}
+
+.modal-footer {
+  border-top: 2px solid var(--border-light);
+  padding: 1.5rem;
+}
+
+/* ============================================
+   Grid & Layout Utilities
+   ============================================ */
+
+.container-narrow {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.container-wide {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* ============================================
+   Image Optimization
+   ============================================ */
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+img[loading="lazy"] {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+img[loading="lazy"].loaded {
+  opacity: 1;
+}
+
+/* ============================================
+   Spacing Utilities
+   ============================================ */
+
+.spacing-xs {
+  padding: 0.5rem;
+}
+
+.spacing-sm {
+  padding: 1rem;
+}
+
+.spacing-md {
+  padding: 1.5rem;
+}
+
+.spacing-lg {
+  padding: 2rem;
+}
+
+.spacing-xl {
+  padding: 3rem;
+}
+
+/* ============================================
+   Dark Mode Support (Future Enhancement)
+   ============================================ */
+
+@media (prefers-color-scheme: dark) {
+  /* Add dark mode styles here if needed in the future */
+}

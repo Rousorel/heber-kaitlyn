@@ -22,6 +22,7 @@
   
   <!-- Nuestros estilos personalizados -->
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="responsive-fixes.css">
   
   <!-- Scripts -->
   <script type="module" src="main.js" defer></script>   
@@ -42,29 +43,39 @@
     </div>
   </header>
 
-  <section id="contador" class="py-5">
-    <div class="container text-center">
-      <!-- Título cursivo (usa --font-special) -->
+  <section id ="introduccion" class="py-f">
+    <div class="container">
+    <div id="slogan" class="slogan">
+      <div class="fondo" style="background-image: url(images/bckground.png.png);">
       <h2 class="contador-title">Falta poco para el gran día</h2>
+    </div>
+    </div>
+  </section>
 
+
+  <section id="contador" class="py-5">
       <!-- Cuatro casillas con los contadores (mantenemos los ids para countdown.js) -->
       <div id="countdown" class="countdown-grid my-4 d-flex justify-content-center gap-3">
         <div class="count-box">
           <span class="number" id="countdown-days">00</span>
+          <span class="count-label">Días</span>
         </div>
         <div class="count-box">
           <span class="number" id="countdown-hours">00</span>
+          <span class="count-label">Horas</span>
         </div>
         <div class="count-box">
           <span class="number" id="countdown-minutes">00</span>
+          <span class="count-label">Min</span>
         </div>
         <div class="count-box">
           <span class="number" id="countdown-seconds">00</span>
+          <span class="count-label">Seg</span>
         </div>
       </div>
 
       <!-- Subtítulo y bloque de fecha centrado -->
-      <p class="contador-subtitle mt-3">Te esperamos para la celebración</p>
+      <p class="contador-subtitle mt-3">Nos casamos y nos encantaría que estuvieras ahí con nosotros.</p>
 
       <div class="date-display d-flex align-items-center justify-content-center mt-3">
         <div class="date-side text-center text-uppercase">
@@ -80,30 +91,32 @@
 
       <!-- Itinerario -->
       <div class="itinerario-inline mt-5">
-        <h3 class="itinerario-subtitle mb-4"></h3>
+        <h3 class="itinerario-subtitle mb-4">Itinerario</h3>
         <div class="timeline-container">
-            <div class="timeline-text ms-3 text-start">
-              <h5 class="mb-0">Ceremonia</h5>
+          <div class="timeline-event">
+            <div class="timeline-item d-flex align-items-center justify-content-center">
+              <div class="rings">
+                <img src="images/rings.png" alt="Icono de anillos">
+              </div>
+            </div>
+            <div class="timeline-text text-center">
+              <h5 class="mb-1">Ceremonia</h5>
               <p class="mb-0 text-muted">3:30 pm - Muelle Laguna</p>
             </div>
-          <div class="timeline-item d-flex align-items-center justify-content-center mb-3">
-            <div class="rings">
-              <i class="icon-rings"><img src="images/rings.png" alt="rings-icon"></i>
-            </div>
           </div>
-            <div class="timeline-text ms-3 text-start">
-              <h5 class="mb-0">Cena</h5>
+          
+          <div class="timeline-event">
+            <div class="timeline-item d-flex align-items-center justify-content-center">
+              <div class="cheers">
+                <img src="images/cheers.png" alt="Icono de brindis">
+              </div>
+            </div>
+            <div class="timeline-text text-center">
+              <h5 class="mb-1">Cena</h5>
               <p class="mb-0 text-muted">6:00 PM</p>
             </div>
-          <div class="timeline-item d-flex align-items-center justify-content-center mb-3">
-            <div class="cheers">
-              <i class="icon-cheers"><img src="images/cheers.png" alt="cheers-icon"></i>
-            </div>
-          </div>
           </div>
         </div>
-      </div>
-    </div>
   </section>
 
   <!-- Ubicación sección -->

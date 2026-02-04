@@ -1,6 +1,12 @@
-/* Estilos para el panel de administración */
+/* ============================================
+   Admin Panel Styles
+   Wedding Website Administration
+   ============================================ */
 
-/* Variables específicas del admin */
+/* ============================================
+   CSS Variables - Admin Specific
+   ============================================ */
+
 :root {
   --sidebar-width: 240px;
   --header-height: 60px;
@@ -9,14 +15,22 @@
   --danger: #e74c3c;
   --success: #27ae60;
   --warning: #f39c12;
+  --info: #3498db;
 }
 
-/* Layout básico */
+/* ============================================
+   Base Admin Layout
+   ============================================ */
+
 .admin-panel {
   background-color: var(--bg-alt);
+  min-height: 100vh;
 }
 
-/* Sidebar */
+/* ============================================
+   Sidebar Navigation
+   ============================================ */
+
 .sidebar {
   position: fixed;
   top: 0;
@@ -24,8 +38,10 @@
   left: 0;
   z-index: 100;
   padding: 48px 0 0;
-  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
   background: white;
+  width: var(--sidebar-width);
+  overflow-y: auto;
 }
 
 .sidebar .nav-link {
@@ -33,6 +49,15 @@
   color: var(--text);
   padding: 0.75rem 1rem;
   transition: all 0.3s ease;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar .nav-link i {
+  margin-right: 0.5rem;
+  width: 20px;
+  text-align: center;
 }
 
 .sidebar .nav-link:hover {
@@ -43,23 +68,37 @@
 .sidebar .nav-link.active {
   color: var(--primary);
   background-color: var(--bg-accent);
+  font-weight: 600;
+  border-left: 3px solid var(--primary);
 }
 
-/* Contenido principal */
+/* ============================================
+   Main Content Area
+   ============================================ */
+
 main {
   padding-top: 1.5rem;
+  margin-left: var(--sidebar-width);
 }
 
-/* Tarjetas */
+main .border-bottom {
+  border-bottom: 2px solid var(--border-light) !important;
+}
+
+/* ============================================
+   Cards & Statistics
+   ============================================ */
+
 .card {
   border: none;
   border-radius: var(--radius);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
 }
 
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow-lg);
 }
 
 .card-title {
@@ -67,9 +106,35 @@ main {
   font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
 }
 
-/* Tablas */
+.card-body h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 0;
+}
+
+.card-body h2::after {
+  display: none;
+}
+
+.card-body p {
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+/* ============================================
+   Tables
+   ============================================ */
+
+.table-responsive {
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
 .table {
   margin-bottom: 0;
 }
@@ -81,16 +146,35 @@ main {
   font-size: 0.75rem;
   letter-spacing: 0.5px;
   color: var(--text-muted);
+  background-color: var(--bg-accent);
+  padding: 1rem;
+  white-space: nowrap;
 }
 
 .table td {
   vertical-align: middle;
+  padding: 1rem;
 }
 
-/* Badges y estados */
+.table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.table tbody tr:hover {
+  background-color: var(--bg-accent);
+}
+
+/* ============================================
+   Badges & Status Indicators
+   ============================================ */
+
 .badge {
   padding: 0.5em 0.75em;
   font-weight: 500;
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
 }
 
 .badge-confirmado {
@@ -108,10 +192,14 @@ main {
   color: white;
 }
 
-/* Formularios */
+/* ============================================
+   Forms
+   ============================================ */
+
 .input-group-text {
   background-color: white;
   border-right: none;
+  color: var(--text-muted);
 }
 
 .input-group .form-control {
@@ -123,14 +211,123 @@ main {
   box-shadow: none;
 }
 
-/* Botones de acción */
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 0.2rem rgba(147, 191, 199, 0.25);
+}
+
+.form-label {
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+/* ============================================
+   Buttons
+   ============================================ */
+
 .btn-action {
   padding: 0.25rem 0.5rem;
   font-size: 0.875rem;
   border-radius: var(--radius-sm);
 }
 
-/* Responsive */
+.btn-outline-primary:hover {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn-outline-danger:hover {
+  background-color: var(--danger);
+  border-color: var(--danger);
+}
+
+.btn-agregar {
+  white-space: nowrap;
+}
+
+/* ============================================
+   Charts & Visualizations
+   ============================================ */
+
+canvas {
+  max-height: 300px;
+  width: 100% !important;
+}
+
+/* ============================================
+   Modal Improvements
+   ============================================ */
+
+.modal-content {
+  border-radius: var(--radius-lg);
+  border: none;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+  background-color: var(--bg-accent);
+  border-bottom: 2px solid var(--border-light);
+  padding: 1.5rem;
+}
+
+.modal-title {
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.modal-body {
+  padding: 1.5rem;
+}
+
+.modal-footer {
+  border-top: 2px solid var(--border-light);
+  padding: 1.5rem;
+}
+
+.btn-close:focus {
+  box-shadow: 0 0 0 0.2rem rgba(147, 191, 199, 0.25);
+}
+
+/* ============================================
+   Toolbar & Actions
+   ============================================ */
+
+.btn-toolbar {
+  gap: 0.5rem;
+}
+
+.btn-toolbar .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* ============================================
+   Loading States
+   ============================================ */
+
+.loading-spinner {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spinner 0.75s linear infinite;
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ============================================
+   Responsive Design - Mobile
+   ============================================ */
+
 @media (max-width: 767.98px) {
   .sidebar {
     position: fixed;
@@ -138,16 +335,172 @@ main {
     bottom: 0;
     left: -240px;
     z-index: 1000;
-    transition: 0.3s ease;
+    transition: left 0.3s ease;
+    box-shadow: none;
   }
 
   .sidebar.show {
     left: 0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  }
+
+  main {
+    margin-left: 0;
+    padding: 1rem;
+  }
+
+  .card-title {
+    font-size: 0.75rem;
+  }
+
+  .table th,
+  .table td {
+    padding: 0.5rem;
+    font-size: 0.875rem;
+  }
+
+  .btn-toolbar {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn-toolbar .btn {
+    width: 100%;
   }
 }
 
-/* Charts */
-canvas {
-  max-height: 300px;
-  width: 100% !important;
+@media (max-width: 575.98px) {
+  .card-body h2 {
+    font-size: 2rem;
+  }
+
+  .table {
+    font-size: 0.8rem;
+  }
+
+  .badge {
+    font-size: 0.65rem;
+    padding: 0.4em 0.6em;
+  }
+}
+
+/* ============================================
+   Tablet & Medium Screens
+   ============================================ */
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  main {
+    padding: 1.5rem;
+  }
+}
+
+/* ============================================
+   Desktop Enhancements
+   ============================================ */
+
+@media (min-width: 992px) {
+  main {
+    padding: 2rem;
+  }
+
+  .card {
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* ============================================
+   Print Styles
+   ============================================ */
+
+@media print {
+  .sidebar,
+  .btn-toolbar,
+  .btn-action {
+    display: none !important;
+  }
+
+  main {
+    margin-left: 0;
+  }
+
+  .card {
+    break-inside: avoid;
+  }
+
+  .table {
+    font-size: 0.8rem;
+  }
+}
+
+/* ============================================
+   Accessibility Improvements
+   ============================================ */
+
+.sidebar .nav-link:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: -2px;
+}
+
+.btn:focus,
+.form-control:focus,
+.form-select:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Ensure sufficient color contrast */
+.text-muted {
+  color: var(--text-muted) !important;
+}
+
+/* ============================================
+   Error & Success Messages
+   ============================================ */
+
+.alert {
+  border-radius: var(--radius);
+  border-width: 2px;
+  font-weight: 500;
+}
+
+.alert-success {
+  background-color: rgba(39, 174, 96, 0.1);
+  border-color: var(--success);
+  color: var(--success);
+}
+
+.alert-danger {
+  background-color: rgba(231, 76, 60, 0.1);
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.alert-warning {
+  background-color: rgba(243, 156, 18, 0.1);
+  border-color: var(--warning);
+  color: #8b6914;
+}
+
+.alert-info {
+  background-color: rgba(52, 152, 219, 0.1);
+  border-color: var(--info);
+  color: var(--info);
+}
+
+/* ============================================
+   Utility Classes
+   ============================================ */
+
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.no-select {
+  user-select: none;
 }

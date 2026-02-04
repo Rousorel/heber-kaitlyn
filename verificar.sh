@@ -1,0 +1,5 @@
+#!/bin/bash
+# Script de inicio rápido para el sitio de boda
+
+# Colores para output
+GREEN='\033[0;32m'\nRED='\033[0;31m'\nBLUE='\033[0;34m'\nNC='\033[0m' # No Color\n\n# Verificar archivos\necho -e \"${BLUE}🔍 Verificando archivos...${NC}\"\n\nfiles=(\"index.html\" \"styles.css\" \"main.js\" \"countdown.js\" \"firebase-config.js\")\n\nfor file in \"${files[@]}\"; do\n    if [ -f \"$file\" ]; then\n        echo -e \"${GREEN}✅ $file${NC}\"\n    else\n        echo -e \"${RED}❌ $file FALTA${NC}\"\n    fi\ndone\n\necho -e \"\\n${BLUE}📁 Verificando carpeta de imágenes...${NC}\"\nif [ -d \"images\" ]; then\n    echo -e \"${GREEN}✅ Carpeta images existe${NC}\"\n    echo -e \"${BLUE}Imágenes encontradas:${NC}\"\n    ls -1 images/ | head -5\nelse\n    echo -e \"${RED}❌ Carpeta images FALTA${NC}\"\nfi\n\necho -e \"\\n${BLUE}🚀 Sitio listo para usar${NC}\"\necho -e \"${GREEN}Abre index.html en tu navegador${NC}\\n\"\n
